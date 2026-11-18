@@ -1,197 +1,741 @@
 {
- "title": "GCAA top 25 (Nov 6, 2026) + Utah schools",
+ "title": "Division I top 100 (Scoreboard by Clippd, Nov 11, 2026) + Utah schools",
  "schools": [
-  {
-   "name": "Auburn University",
-   "division": "D1",
-   "conference": "SEC",
-   "state": "AL"
-  },
   {
    "name": "Oklahoma State University",
    "division": "D1",
-   "conference": "Big 12",
-   "state": "OK"
+   "state": "OK",
+   "rank": 1,
+   "reason": "Ranked #1 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #2 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of Arkansas",
    "division": "D1",
-   "conference": "SEC",
-   "state": "AR"
+   "state": "AR",
+   "rank": 2,
+   "reason": "Ranked #2 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #3 in the GCAA Coaches' Poll (Nov 6, 2026)"
+  },
+  {
+   "name": "Auburn University",
+   "division": "D1",
+   "state": "AL",
+   "rank": 3,
+   "reason": "Ranked #3 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #1 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of Florida",
    "division": "D1",
-   "conference": "SEC",
-   "state": "FL"
+   "state": "FL",
+   "rank": 4,
+   "reason": "Ranked #4 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #4 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of Texas",
    "division": "D1",
-   "conference": "SEC",
-   "state": "TX"
+   "state": "TX",
+   "rank": 5,
+   "reason": "Ranked #5 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #5 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "Texas Tech University",
    "division": "D1",
-   "conference": "Big 12",
-   "state": "TX"
+   "state": "TX",
+   "rank": 6,
+   "reason": "Ranked #6 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #6 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of Tennessee",
    "division": "D1",
-   "conference": "SEC",
-   "state": "TN"
+   "state": "TN",
+   "rank": 7,
+   "reason": "Ranked #7 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #7 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of Alabama",
    "division": "D1",
-   "conference": "SEC",
-   "state": "AL"
+   "state": "AL",
+   "rank": 8,
+   "reason": "Ranked #8 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); T-8 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of Illinois",
    "division": "D1",
-   "conference": "Big Ten",
-   "state": "IL"
+   "state": "IL",
+   "rank": 9,
+   "reason": "Ranked #9 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); T-8 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "Georgia Tech",
    "division": "D1",
-   "conference": "ACC",
-   "state": "GA"
-  },
-  {
-   "name": "University of Georgia",
-   "division": "D1",
-   "conference": "SEC",
-   "state": "GA"
+   "state": "GA",
+   "rank": 10,
+   "reason": "Ranked #10 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #10 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of New Mexico",
    "division": "D1",
-   "conference": "Mountain West",
-   "state": "NM"
+   "state": "NM",
+   "rank": 11,
+   "reason": "Ranked #11 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #12 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
-   "name": "Vanderbilt University",
+   "name": "University of Georgia",
    "division": "D1",
-   "conference": "SEC",
-   "state": "TN"
+   "state": "GA",
+   "rank": 12,
+   "reason": "Ranked #12 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #11 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "Texas A&M University",
    "division": "D1",
-   "conference": "SEC",
-   "state": "TX"
+   "state": "TX",
+   "rank": 13,
+   "reason": "Ranked #13 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #14 in the GCAA Coaches' Poll (Nov 6, 2026)"
+  },
+  {
+   "name": "Vanderbilt University",
+   "division": "D1",
+   "state": "TN",
+   "rank": 14,
+   "reason": "Ranked #14 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #13 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of North Carolina",
    "division": "D1",
-   "conference": "ACC",
-   "state": "NC"
-  },
-  {
-   "name": "University of Washington",
-   "division": "D1",
-   "conference": "Big Ten",
-   "state": "WA"
+   "state": "NC",
+   "rank": 15,
+   "reason": "Ranked #15 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #15 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "Arizona State University",
    "division": "D1",
-   "conference": "Big 12",
-   "state": "AZ"
+   "state": "AZ",
+   "rank": 16,
+   "reason": "Ranked #16 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #17 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "University of Notre Dame",
    "division": "D1",
-   "conference": "ACC",
-   "state": "IN"
+   "state": "IN",
+   "rank": 17,
+   "reason": "Ranked #17 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #18 in the GCAA Coaches' Poll (Nov 6, 2026)"
+  },
+  {
+   "name": "University of Washington",
+   "division": "D1",
+   "state": "WA",
+   "rank": 18,
+   "reason": "Ranked #18 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #16 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "Clemson University",
    "division": "D1",
-   "conference": "ACC",
-   "state": "SC"
-  },
-  {
-   "name": "Brigham Young University (BYU)",
-   "division": "D1",
-   "conference": "Big 12",
-   "state": "UT"
+   "state": "SC",
+   "rank": 19,
+   "reason": "Ranked #19 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #19 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "East Tennessee State University",
    "division": "D1",
-   "conference": "SoCon",
-   "state": "TN"
+   "state": "TN",
+   "rank": 20,
+   "reason": "Ranked #20 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #21 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "Wake Forest University",
    "division": "D1",
-   "conference": "ACC",
-   "state": "NC"
+   "state": "NC",
+   "rank": 21,
+   "reason": "Ranked #21 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #22 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "Santa Clara University",
    "division": "D1",
-   "conference": "WCC",
-   "state": "CA"
+   "state": "CA",
+   "rank": 22,
+   "reason": "Ranked #22 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #23 in the GCAA Coaches' Poll (Nov 6, 2026)"
+  },
+  {
+   "name": "Brigham Young University (BYU)",
+   "division": "D1",
+   "state": "UT",
+   "rank": 23,
+   "reason": "In Utah. Ranked #23 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #20 in the GCAA Coaches' Poll (Nov 6, 2026)"
   },
   {
    "name": "TCU",
    "division": "D1",
-   "conference": "Big 12",
-   "state": "TX"
+   "state": "TX",
+   "rank": 24,
+   "reason": "Ranked #24 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #24 in the GCAA Coaches' Poll (Nov 6, 2026)"
+  },
+  {
+   "name": "University of Oklahoma",
+   "division": "D1",
+   "state": "OK",
+   "rank": 25,
+   "reason": "Ranked #25 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
   },
   {
    "name": "University of South Carolina",
    "division": "D1",
-   "conference": "SEC",
-   "state": "SC"
+   "state": "SC",
+   "rank": 26,
+   "reason": "Ranked #26 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026); #25 in the GCAA Coaches' Poll (Nov 6, 2026)"
+  },
+  {
+   "name": "University of Kansas",
+   "division": "D1",
+   "state": "KS",
+   "rank": 27,
+   "reason": "Ranked #27 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Liberty University",
+   "division": "D1",
+   "state": "VA",
+   "rank": 28,
+   "reason": "Ranked #28 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Purdue University",
+   "division": "D1",
+   "state": "IN",
+   "rank": 29,
+   "reason": "Ranked #29 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "LSU",
+   "division": "D1",
+   "state": "LA",
+   "rank": 30,
+   "reason": "Ranked #30 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "UNLV",
+   "division": "D1",
+   "state": "NV",
+   "rank": 31,
+   "reason": "Ranked #31 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "USC",
+   "division": "D1",
+   "state": "CA",
+   "rank": 32,
+   "reason": "Ranked #32 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Toledo",
+   "division": "D1",
+   "state": "OH",
+   "rank": 33,
+   "reason": "Ranked #33 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Pepperdine University",
+   "division": "D1",
+   "state": "CA",
+   "rank": 34,
+   "reason": "Ranked #34 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "San Diego State University",
+   "division": "D1",
+   "state": "CA",
+   "rank": 35,
+   "reason": "Ranked #35 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "UNC Greensboro",
+   "division": "D1",
+   "state": "NC",
+   "rank": 36,
+   "reason": "Ranked #36 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Colorado",
+   "division": "D1",
+   "state": "CO",
+   "rank": 37,
+   "reason": "Ranked #37 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Ohio State University",
+   "division": "D1",
+   "state": "OH",
+   "rank": 38,
+   "reason": "Ranked #38 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Arkansas State University",
+   "division": "D1",
+   "state": "AR",
+   "rank": 39,
+   "reason": "Ranked #39 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "UCLA",
+   "division": "D1",
+   "state": "CA",
+   "rank": 40,
+   "reason": "Ranked #40 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "UC Berkeley (Cal)",
+   "division": "D1",
+   "state": "CA",
+   "rank": 41,
+   "reason": "Ranked #41 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "College of Charleston",
+   "division": "D1",
+   "state": "SC",
+   "rank": 42,
+   "reason": "Ranked #42 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Georgia Southern University",
+   "division": "D1",
+   "state": "GA",
+   "rank": 43,
+   "reason": "Ranked #43 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Cincinnati",
+   "division": "D1",
+   "state": "OH",
+   "rank": 44,
+   "reason": "Ranked #44 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Mississippi State University",
+   "division": "D1",
+   "state": "MS",
+   "rank": 45,
+   "reason": "Ranked #45 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Rutgers University",
+   "division": "D1",
+   "state": "NJ",
+   "rank": 46,
+   "reason": "Ranked #46 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Florida State University",
+   "division": "D1",
+   "state": "FL",
+   "rank": 47,
+   "reason": "Ranked #47 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "UT Chattanooga",
+   "division": "D1",
+   "state": "TN",
+   "rank": 48,
+   "reason": "Ranked #48 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Oregon",
+   "division": "D1",
+   "state": "OR",
+   "rank": 49,
+   "reason": "Ranked #49 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Ole Miss",
+   "division": "D1",
+   "state": "MS",
+   "rank": 50,
+   "reason": "Ranked #50 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "UNC Charlotte",
+   "division": "D1",
+   "state": "NC",
+   "rank": 51,
+   "reason": "Ranked #51 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Stanford University",
+   "division": "D1",
+   "state": "CA",
+   "rank": 52,
+   "reason": "Ranked #52 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Michigan",
+   "division": "D1",
+   "state": "MI",
+   "rank": 53,
+   "reason": "Ranked #53 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Michigan State University",
+   "division": "D1",
+   "state": "MI",
+   "rank": 54,
+   "reason": "Ranked #54 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Memphis",
+   "division": "D1",
+   "state": "TN",
+   "rank": 55,
+   "reason": "Ranked #55 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Eastern Michigan University",
+   "division": "D1",
+   "state": "MI",
+   "rank": 56,
+   "reason": "Ranked #56 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "NC State University",
+   "division": "D1",
+   "state": "NC",
+   "rank": 57,
+   "reason": "Ranked #57 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Duke University",
+   "division": "D1",
+   "state": "NC",
+   "rank": 58,
+   "reason": "Ranked #58 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Northwestern University",
+   "division": "D1",
+   "state": "IL",
+   "rank": 59,
+   "reason": "Ranked #59 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Arizona",
+   "division": "D1",
+   "state": "AZ",
+   "rank": 60,
+   "reason": "Ranked #60 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of San Diego",
+   "division": "D1",
+   "state": "CA",
+   "rank": 61,
+   "reason": "Ranked #61 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "New Mexico State University",
+   "division": "D1",
+   "state": "NM",
+   "rank": 62,
+   "reason": "Ranked #62 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Southern Miss",
+   "division": "D1",
+   "state": "MS",
+   "rank": 63,
+   "reason": "Ranked #63 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Grand Canyon University",
+   "division": "D1",
+   "state": "AZ",
+   "rank": 64,
+   "reason": "Ranked #64 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Augusta University",
+   "division": "D1",
+   "state": "GA",
+   "rank": 65,
+   "reason": "Ranked #65 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Minnesota",
+   "division": "D1",
+   "state": "MN",
+   "rank": 66,
+   "reason": "Ranked #66 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Saint Mary's College of California",
+   "division": "D1",
+   "state": "CA",
+   "rank": 67,
+   "reason": "Ranked #67 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Marquette University",
+   "division": "D1",
+   "state": "WI",
+   "rank": 68,
+   "reason": "Ranked #68 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Loyola Marymount University",
+   "division": "D1",
+   "state": "CA",
+   "rank": 69,
+   "reason": "Ranked #69 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Missouri",
+   "division": "D1",
+   "state": "MO",
+   "rank": 70,
+   "reason": "Ranked #70 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Kansas State University",
+   "division": "D1",
+   "state": "KS",
+   "rank": 71,
+   "reason": "Ranked #71 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Kentucky",
+   "division": "D1",
+   "state": "KY",
+   "rank": 72,
+   "reason": "Ranked #72 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Harvard University",
+   "division": "D1",
+   "state": "MA",
+   "rank": 73,
+   "reason": "Ranked #73 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Lipscomb University",
+   "division": "D1",
+   "state": "TN",
+   "rank": 74,
+   "reason": "Ranked #74 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Long Beach State",
+   "division": "D1",
+   "state": "CA",
+   "rank": 75,
+   "reason": "Ranked #75 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Little Rock",
+   "division": "D1",
+   "state": "AR",
+   "rank": 76,
+   "reason": "Ranked #76 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Coastal Carolina University",
+   "division": "D1",
+   "state": "SC",
+   "rank": 77,
+   "reason": "Ranked #77 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "West Virginia University",
+   "division": "D1",
+   "state": "WV",
+   "rank": 78,
+   "reason": "Ranked #78 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "UAB",
+   "division": "D1",
+   "state": "AL",
+   "rank": 79,
+   "reason": "Ranked #79 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Virginia",
+   "division": "D1",
+   "state": "VA",
+   "rank": 80,
+   "reason": "Ranked #80 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Indiana University",
+   "division": "D1",
+   "state": "IN",
+   "rank": 81,
+   "reason": "Ranked #81 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "VCU",
+   "division": "D1",
+   "state": "VA",
+   "rank": 82,
+   "reason": "Ranked #82 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
   },
   {
    "name": "University of Utah",
    "division": "D1",
-   "conference": "Big 12",
-   "state": "UT"
+   "state": "UT",
+   "rank": 83,
+   "reason": "In Utah. Ranked #83 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of South Florida",
+   "division": "D1",
+   "state": "FL",
+   "rank": 84,
+   "reason": "Ranked #84 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of the Pacific",
+   "division": "D1",
+   "state": "CA",
+   "rank": 85,
+   "reason": "Ranked #85 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of San Francisco",
+   "division": "D1",
+   "state": "CA",
+   "rank": 86,
+   "reason": "Ranked #86 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Houston",
+   "division": "D1",
+   "state": "TX",
+   "rank": 87,
+   "reason": "Ranked #87 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of North Texas",
+   "division": "D1",
+   "state": "TX",
+   "rank": 88,
+   "reason": "Ranked #88 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Maryland",
+   "division": "D1",
+   "state": "MD",
+   "rank": 89,
+   "reason": "Ranked #89 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Campbell University",
+   "division": "D1",
+   "state": "NC",
+   "rank": 90,
+   "reason": "Ranked #90 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Iowa",
+   "division": "D1",
+   "state": "IA",
+   "rank": 91,
+   "reason": "Ranked #91 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Baylor University",
+   "division": "D1",
+   "state": "TX",
+   "rank": 92,
+   "reason": "Ranked #92 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of St. Thomas",
+   "division": "D1",
+   "state": "MN",
+   "rank": 93,
+   "reason": "Ranked #93 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Penn State University",
+   "division": "D1",
+   "state": "PA",
+   "rank": 94,
+   "reason": "Ranked #94 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of Louisville",
+   "division": "D1",
+   "state": "KY",
+   "rank": 95,
+   "reason": "Ranked #95 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "University of North Florida",
+   "division": "D1",
+   "state": "FL",
+   "rank": 96,
+   "reason": "Ranked #96 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Virginia Tech",
+   "division": "D1",
+   "state": "VA",
+   "rank": 97,
+   "reason": "Ranked #97 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Florida Atlantic University",
+   "division": "D1",
+   "state": "FL",
+   "rank": 98,
+   "reason": "Ranked #98 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Elon University",
+   "division": "D1",
+   "state": "NC",
+   "rank": 99,
+   "reason": "Ranked #99 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
+  },
+  {
+   "name": "Stetson University",
+   "division": "D1",
+   "state": "FL",
+   "rank": 100,
+   "reason": "Ranked #100 in Division I men's golf (Scoreboard by Clippd, Nov 11, 2026)"
   },
   {
    "name": "Utah State University",
    "division": "D1",
-   "conference": "Pac-12",
-   "state": "UT"
+   "state": "UT",
+   "reason": "In Utah. Not in the Division I top 100."
   },
   {
    "name": "Utah Valley University",
    "division": "D1",
-   "conference": "",
-   "state": "UT"
+   "state": "UT",
+   "reason": "In Utah. Not in the Division I top 100."
   },
   {
    "name": "Utah Tech University",
    "division": "D1",
-   "conference": "",
-   "state": "UT"
+   "state": "UT",
+   "reason": "In Utah. Not in the Division I top 100."
   },
   {
    "name": "Southern Utah University",
    "division": "D1",
-   "conference": "",
-   "state": "UT"
+   "state": "UT",
+   "reason": "In Utah. Not in the Division I top 100."
   },
   {
    "name": "Weber State University",
    "division": "D1",
-   "conference": "Big Sky",
-   "state": "UT"
+   "state": "UT",
+   "reason": "In Utah. Not in the Division I top 100."
   },
   {
    "name": "Westminster University",
    "division": "D2",
-   "conference": "RMAC",
-   "state": "UT"
+   "state": "UT",
+   "reason": "In Utah"
   }
  ]
 }

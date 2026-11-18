@@ -56,7 +56,7 @@
     const body = document.getElementById("rows"); body.textContent = "";
     const shown = schools.filter(s =>
       (pickFilter === "All" || (pickFilter === "Send" && s.pick === "send") || (pickFilter === "Skip" && s.pick === "skip") || (pickFilter === "Not decided" && !s.pick)) &&
-      (!query || [s.name, s.conference, s.state, s.coachName].join(" ").toLowerCase().includes(query)));
+      (!query || [s.name, s.conference, s.state, s.coachName, s.reason].join(" ").toLowerCase().includes(query)));
     if (!shown.length) {
       const tr = el("tr"); const td = el("td", "status", schools.length ? "No schools match." : "No schools yet. Add one above."); td.colSpan = 7; tr.append(td); body.append(tr); return;
     }
@@ -73,8 +73,8 @@
         try { await api("POST", { action: "deleteSchool", id: s.id }); await load(); } catch (e) {}
       };
       act.append(del);
-      const name = el("td"); name.append(el("strong", "", s.name));
-      tr.append(name, el("td", "", s.division || "–"), el("td", "", s.conference || "–"), el("td", "", s.state || "–"), coach, pickTd, act);
+      const name = el("td"); name.append(el("strong", "", s.name)); if (s.reason) name.append(el("div", "sub", s.reason));
+      tr.append(el("td", "num", s.rank ? "#" + s.rank : "–"), name, el("td", "", s.division || "–"), el("td", "", s.state || "–"), coach, pickTd, act);
       body.append(tr);
     });
   }
@@ -83,7 +83,7 @@
     statusEl.textContent = "Adding…";
     try {
       const r = await api("POST", { action: "addSchools", schools: list });
-      statusEl.textContent = "Added " + r.added + (r.skipped ? ", skipped " + r.skipped + " already on the list" : "") + ".";
+      statusEl.textContent = "Added " + r.added + (r.updated ? ", updated " + r.updated : "") + (r.skipped ? ", skipped " + r.skipped + " already on the list" : "") + ".";
       await load(); return true;
     } catch (e) { statusEl.textContent = "Couldn't add. Try again."; return false; }
   }
@@ -122,7 +122,7 @@
   };
   document.getElementById("copy-csv").onclick = () => {
     const q = x => '"' + String(x || "").replace(/"/g, '""') + '"';
-    const rows = [["School", "Division", "Conference", "State", "Coach", "Email"], ...schools.filter(s => s.pick === "send").map(s => [s.name, s.division, s.conference, s.state, s.coachName, s.coachEmail])];
+    const rows = [["Rank", "School", "Division", "State", "Coach", "Email", "Reason"], ...schools.filter(s => s.pick === "send").map(s => [s.rank || "", s.name, s.division, s.state, s.coachName, s.coachEmail, s.reason])];
     copy(rows.map(r => r.map(q).join(",")).join("\n"), "Copied " + (rows.length - 1) + " schools as CSV. Paste into a spreadsheet.");
   };
 

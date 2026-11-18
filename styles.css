@@ -193,3 +193,4 @@ details.ask summary { cursor: pointer; list-style-position: inside; }
 .pill.skip { background: var(--ink); color: var(--bg); }
 @media (max-width: 900px) { .school-form { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .school { flex-wrap: wrap; } .toggle { width: 100%; } .toggle button { flex: 1; } .school-form { grid-template-columns: 1fr; } }
+.school .reason, .results .sub { font-size: .82rem; color: var(--muted); line-height: 1.4; margin-top: 2px; }

@@ -21,6 +21,8 @@ function cleanSchool(s) {
     state: clean(s.state, 40),
     coachName: clean(s.coachName, 120),
     coachEmail: clean(s.coachEmail, 160),
+    reason: clean(s.reason, 300),
+    rank: Number.isInteger(Number(s.rank)) && Number(s.rank) > 0 ? Number(s.rank) : null,
   };
 }
 
@@ -32,7 +34,8 @@ module.exports = async (req, res) => {
 
   try {
     if (req.method === "GET") {
-      const schools = parseHash(await redis("HGETALL", "schools")).sort((a, b) => a.name.localeCompare(b.name));
+      const schools = parseHash(await redis("HGETALL", "schools"))
+        .sort((a, b) => (a.rank || 9999) - (b.rank || 9999) || a.name.localeCompare(b.name));
       return res.status(200).json({ schools, role: isAdmin ? "admin" : "family" });
     }
     if (req.method !== "POST") return res.status(405).json({ error: "method_not_allowed" });
@@ -52,20 +55,29 @@ module.exports = async (req, res) => {
 
     switch (b.action) {
       case "addSchools": {
+        // Adds new schools. A school already on the list (same name) keeps Ben's pick
+        // but gets any new details filled in (reason, rank, state, etc.).
         const list = Array.isArray(b.schools) ? b.schools.slice(0, 1000) : [];
-        const existing = new Set(parseHash(await redis("HGETALL", "schools")).map(s => s.name.toLowerCase()));
-        let added = 0, skipped = 0;
+        const byName = new Map(parseHash(await redis("HGETALL", "schools")).map(s => [s.name.toLowerCase(), s]));
+        let added = 0, updated = 0, skipped = 0;
         const args = [];
         for (const item of list) {
           const s = cleanSchool(item);
-          if (!s.name || existing.has(s.name.toLowerCase())) { skipped++; continue; }
-          existing.add(s.name.toLowerCase());
+          if (!s.name) { skipped++; continue; }
+          const prev = byName.get(s.name.toLowerCase());
+          if (prev) {
+            const merged = { ...prev };
+            for (const [k, v] of Object.entries(s)) if (v !== "" && v !== null) merged[k] = v;
+            if (JSON.stringify(merged) === JSON.stringify(prev)) { skipped++; continue; }
+            args.push(prev.id, JSON.stringify(merged)); byName.set(s.name.toLowerCase(), merged); updated++;
+            continue;
+          }
           const id = crypto.randomUUID();
-          args.push(id, JSON.stringify({ id, ...s, pick: null, pickedAt: null, addedAt: Date.now() }));
-          added++;
+          const rec = { id, ...s, pick: null, pickedAt: null, addedAt: Date.now() };
+          args.push(id, JSON.stringify(rec)); byName.set(s.name.toLowerCase(), rec); added++;
         }
         if (args.length) await redis("HSET", "schools", ...args);
-        return res.status(200).json({ ok: true, added, skipped });
+        return res.status(200).json({ ok: true, added, updated, skipped });
       }
       case "updateSchool": {
         const raw = await redis("HGET", "schools", String(b.id));

@@ -68,7 +68,7 @@
     if (pickFilter === "Send" && s.pick !== "send") return false;
     if (pickFilter === "Skip" && s.pick !== "skip") return false;
     if (pickFilter === "Not decided" && s.pick) return false;
-    if (query && ![s.name, s.conference, s.state].join(" ").toLowerCase().includes(query)) return false;
+    if (query && ![s.name, s.conference, s.state, s.reason].join(" ").toLowerCase().includes(query)) return false;
     return true;
   }
 
@@ -90,8 +90,9 @@
       const li = el("li", "school" + (s.pick ? " " + s.pick : ""));
       const info = el("div", "info");
       info.append(el("div", "name", s.name));
-      const sub = [s.division, s.conference, s.state].filter(Boolean).join(" · ");
+      const sub = [s.rank ? "#" + s.rank : "", s.division, s.conference, s.state].filter(Boolean).join(" · ");
       if (sub) info.append(el("div", "sub", sub));
+      if (s.reason) info.append(el("div", "reason", s.reason));
       const t = el("div", "toggle");
       [["send", "Send"], ["skip", "Skip"]].forEach(([v, label]) => {
         const b = el("button", v + (s.pick === v ? " on" : ""), label); b.type = "button";

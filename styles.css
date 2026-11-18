@@ -256,6 +256,7 @@ nav ul a.active { color: var(--ink); }
 .tl-item::before { content: ""; position: absolute; left: calc(var(--line-x) - 7px); top: 10px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); border: 3px solid var(--fairway); z-index: 1; transition: transform .5s var(--ease-out), background-color .4s, border-color .4s; }
 .tl-item.lit::before { background: var(--flag); border-color: var(--flag); transform: scale(1.15); box-shadow: 0 0 0 6px color-mix(in srgb, var(--flag) 25%, transparent); }
 .tl-year { font-family: var(--display); font-weight: 800; font-size: 2.6rem; line-height: 1; text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tl-age { display: block; font-family: var(--mono); font-weight: 400; font-size: .72rem; letter-spacing: .04em; color: var(--muted); margin-top: 6px; white-space: nowrap; }
 .tl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; min-width: 0; }
 .tl-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
 .tl-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }

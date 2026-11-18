@@ -1,4 +1,4 @@
-// /ben-picks: Ben marks each school Send or Skip. Password is FAMILY_PASSWORD, checked on the server.
+// /ben-picks: Ben marks each school Yes, No or Skip for now. Password is FAMILY_PASSWORD, checked on the server.
 (function () {
   let password = "";
   try { password = sessionStorage.getItem("bw-family") || ""; } catch (e) {}
@@ -52,21 +52,23 @@
   function buildChips() {
     const divs = ["All", ...["D1", "D2", "D3", "NAIA", "JUCO", "Other"].filter(d => schools.some(s => s.division === d))];
     chipRow(document.getElementById("div-chips"), divs, division, v => (division = v));
-    chipRow(document.getElementById("pick-chips"), ["All", "Not decided", "Send", "Skip"], pickFilter, v => (pickFilter = v));
+    chipRow(document.getElementById("pick-chips"), ["All", "Not decided", "Yes", "No", "Skip for now"], pickFilter, v => (pickFilter = v));
   }
 
   function summary() {
     const s = document.getElementById("summary"); s.textContent = "";
-    const send = schools.filter(x => x.pick === "send").length, skip = schools.filter(x => x.pick === "skip").length;
-    [[send, "send", "send"], [skip, "skip", ""], [schools.length - send - skip, "not decided", ""]].forEach(([n, label, cls]) => {
+    const n = p => schools.filter(x => x.pick === p).length;
+    const yes = n("yes"), no = n("no"), later = n("later");
+    [[yes, "yes", "send"], [no, "no", ""], [later, "skip for now", ""], [schools.length - yes - no - later, "not decided", ""]].forEach(([n, label, cls]) => {
       const sp = el("span", cls); sp.append(el("b", "", String(n)), document.createTextNode(label)); s.append(sp);
     });
   }
 
   function matches(s) {
     if (division !== "All" && s.division !== division) return false;
-    if (pickFilter === "Send" && s.pick !== "send") return false;
-    if (pickFilter === "Skip" && s.pick !== "skip") return false;
+    if (pickFilter === "Yes" && s.pick !== "yes") return false;
+    if (pickFilter === "No" && s.pick !== "no") return false;
+    if (pickFilter === "Skip for now" && s.pick !== "later") return false;
     if (pickFilter === "Not decided" && s.pick) return false;
     if (query && ![s.name, s.conference, s.state, s.reason].join(" ").toLowerCase().includes(query)) return false;
     return true;
@@ -97,7 +99,7 @@
       if (sub) info.append(el("div", "sub", sub));
       if (s.reason) info.append(el("div", "reason", s.reason));
       const t = el("div", "toggle");
-      [["send", "Send"], ["skip", "Skip"]].forEach(([v, label]) => {
+      [["yes", "Yes"], ["no", "No"], ["later", "Skip for now"]].forEach(([v, label]) => {
         const b = el("button", v + (s.pick === v ? " on" : ""), label); b.type = "button";
         b.setAttribute("aria-pressed", String(s.pick === v));
         b.onclick = () => setPick(s, v);

@@ -1,8 +1,9 @@
 // School picks for the mass recruiting email.
-// Ben signs in with FAMILY_PASSWORD (x-family-password) and marks each school "send" or "skip".
+// Ben signs in with FAMILY_PASSWORD (x-family-password) and marks each school "yes" (send the email),
+// "no" (leave it out) or "later" (skip for now, decide later). Older "send"/"skip" picks read as yes/no.
 // Thomas signs in with ADMIN_PASSWORD, or FAMILY_PASSWORD if unset (x-admin-password), and manages the list.
 // GET  /api/picks                         -> { schools, role }
-// POST /api/picks { action: "setPick", id, pick: "send"|"skip"|null }   (family or admin)
+// POST /api/picks { action: "setPick", id, pick: "yes"|"no"|"later"|null }   (family or admin)
 // POST /api/picks { action: "addSchools", schools: [{name, division, conference, state, coachName, coachEmail}] } (admin)
 // POST /api/picks { action: "updateSchool", id, ...fields } (admin)
 // POST /api/picks { action: "deleteSchool", id } (admin)
@@ -26,6 +27,9 @@ function cleanSchool(s) {
   };
 }
 
+const PICKS = { yes: "yes", no: "no", later: "later", send: "yes", skip: "no" };
+const normPick = p => PICKS[p] || null;
+
 module.exports = async (req, res) => {
   if (!process.env.FAMILY_PASSWORD && !expectedPassword("admin")) return res.status(500).json({ error: "password_not_configured" });
   const isAdmin = !!req.headers["x-admin-password"] && checkPassword(req.headers["x-admin-password"], "admin");
@@ -35,6 +39,7 @@ module.exports = async (req, res) => {
   try {
     if (req.method === "GET") {
       const schools = parseHash(await redis("HGETALL", "schools"))
+        .map(s => ({ ...s, pick: normPick(s.pick) }))
         .sort((a, b) => (a.rank || 9999) - (b.rank || 9999) || a.name.localeCompare(b.name));
       return res.status(200).json({ schools, role: isAdmin ? "admin" : "family" });
     }
@@ -45,7 +50,7 @@ module.exports = async (req, res) => {
       const raw = await redis("HGET", "schools", String(b.id));
       if (!raw) return res.status(404).json({ error: "not_found" });
       const s = JSON.parse(raw);
-      s.pick = b.pick === "send" || b.pick === "skip" ? b.pick : null;
+      s.pick = normPick(b.pick);
       s.pickedAt = s.pick ? Date.now() : null;
       await redis("HSET", "schools", s.id, JSON.stringify(s));
       return res.status(200).json({ ok: true });

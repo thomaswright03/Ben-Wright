@@ -1,4 +1,4 @@
-// /add-picks: Thomas manages the school list and copies the Send list.
+// /add-picks: Thomas manages the school list and copies the Yes list (schools Ben wants emailed).
 // Password is ADMIN_PASSWORD (or FAMILY_PASSWORD if unset), checked on the server.
 (function () {
   let password = "";
@@ -42,21 +42,22 @@
   }
 
   function render() {
-    const send = schools.filter(x => x.pick === "send").length, skip = schools.filter(x => x.pick === "skip").length;
+    const n = p => schools.filter(x => x.pick === p).length;
+    const yes = n("yes"), no = n("no"), later = n("later");
     const sum = document.getElementById("summary"); sum.textContent = "";
-    [[schools.length, "schools", ""], [send, "send", "send"], [skip, "skip", ""], [schools.length - send - skip, "not decided", ""]].forEach(([n, l, c]) => {
+    [[schools.length, "schools", ""], [yes, "yes", "send"], [no, "no", ""], [later, "skip for now", ""], [schools.length - yes - no - later, "not decided", ""]].forEach(([n, l, c]) => {
       const s = el("span", c); s.append(el("b", "", String(n)), document.createTextNode(l)); sum.append(s);
     });
 
     const chips = document.getElementById("pick-chips"); chips.textContent = "";
-    ["All", "Send", "Skip", "Not decided"].forEach(o => {
+    ["All", "Yes", "No", "Skip for now", "Not decided"].forEach(o => {
       const b = el("button", "chip", o); b.type = "button"; b.setAttribute("aria-pressed", String(o === pickFilter));
       b.onclick = () => { pickFilter = o; render(); }; chips.append(b);
     });
 
     const body = document.getElementById("rows"); body.textContent = "";
     const shown = schools.filter(s =>
-      (pickFilter === "All" || (pickFilter === "Send" && s.pick === "send") || (pickFilter === "Skip" && s.pick === "skip") || (pickFilter === "Not decided" && !s.pick)) &&
+      (pickFilter === "All" || (pickFilter === "Yes" && s.pick === "yes") || (pickFilter === "No" && s.pick === "no") || (pickFilter === "Skip for now" && s.pick === "later") || (pickFilter === "Not decided" && !s.pick)) &&
       (!query || [s.name, s.conference, s.state, s.coachName, s.reason].join(" ").toLowerCase().includes(query)));
     if (!shown.length) {
       const tr = el("tr"); const td = el("td", "status", schools.length ? "No schools match." : "No schools yet. Add one above."); td.colSpan = 7; tr.append(td); body.append(tr); return;
@@ -65,7 +66,8 @@
       const tr = el("tr");
       const coach = el("td"); coach.append(el("div", "", s.coachName || "–")); if (s.coachEmail) coach.append(el("div", "sub mono", s.coachEmail));
       const pickTd = el("td");
-      pickTd.append(el("span", "pill " + (s.pick === "send" ? "yes" : s.pick === "skip" ? "skip" : "no"), s.pick === "send" ? "Send" : s.pick === "skip" ? "Skip" : "Not decided"));
+      const P = { yes: ["yes", "Yes"], no: ["skip", "No"], later: ["later", "Skip for now"] }[s.pick] || ["no", "Not decided"];
+      pickTd.append(el("span", "pill " + P[0], P[1]));
       const act = el("td");
       const del = el("button", "linkbtn", "Remove"); del.type = "button";
       let armed = false;
@@ -117,13 +119,13 @@
     catch (e) { st.textContent = "Couldn't copy. Your browser blocked the clipboard."; }
   }
   document.getElementById("copy-emails").onclick = () => {
-    const sendList = schools.filter(s => s.pick === "send");
+    const sendList = schools.filter(s => s.pick === "yes");
     const emails = sendList.map(s => s.coachEmail).filter(Boolean);
-    copy(emails.join(", "), "Copied " + emails.length + " emails" + (emails.length < sendList.length ? " (" + (sendList.length - emails.length) + " Send schools have no email yet)" : "") + ".");
+    copy(emails.join(", "), "Copied " + emails.length + " emails" + (emails.length < sendList.length ? " (" + (sendList.length - emails.length) + " Yes schools have no email yet)" : "") + ".");
   };
   document.getElementById("copy-csv").onclick = () => {
     const q = x => '"' + String(x || "").replace(/"/g, '""') + '"';
-    const rows = [["Rank", "School", "Division", "State", "Coach", "Email", "Reason"], ...schools.filter(s => s.pick === "send").map(s => [s.rank || "", s.name, s.division, s.state, s.coachName, s.coachEmail, s.reason])];
+    const rows = [["Rank", "School", "Division", "State", "Coach", "Email", "Reason"], ...schools.filter(s => s.pick === "yes").map(s => [s.rank || "", s.name, s.division, s.state, s.coachName, s.coachEmail, s.reason])];
     copy(rows.map(r => r.map(q).join(",")).join("\n"), "Copied " + (rows.length - 1) + " schools as CSV. Paste into a spreadsheet.");
   };
 

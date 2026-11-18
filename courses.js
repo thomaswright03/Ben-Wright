@@ -52,7 +52,12 @@
     return { box, diff, rounds: c.benRounds.length };
   }
 
-  const load = url => fetch(url).then(r => r.ok ? r.json() : { courses: [] }).then(d => d.courses || []).catch(() => []);
+  // Each source gets 4s; a slow or down database never holds back the cards kept in the repo.
+  const load = url => {
+    const ac = "AbortController" in window ? new AbortController() : null;
+    const t = ac && setTimeout(() => ac.abort(), 4000);
+    return fetch(url, ac ? { signal: ac.signal } : {}).then(r => r.ok ? r.json() : { courses: [] }).then(d => d.courses || []).catch(() => []).finally(() => clearTimeout(t));
+  };
   Promise.all([load("/data/courses.json"), load("/api/courses")]).then(([fixed, added]) => {
     const list = fixed.concat(added).filter(c => c.benRounds && c.benRounds.length && (c.d1FieldAvg || (c.d1Players && c.d1Players.length)));
     if (!list.length) return;

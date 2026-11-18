@@ -101,6 +101,16 @@
     setTimeout(() => container.classList.toggle("stagger-in", false), 1400);
   };
 
+  /* ---------- Clips play (muted) only while on screen, and only with motion on ---------- */
+  const clips = $$("video[data-autoplay]");
+  if (clips.length && motion && "IntersectionObserver" in window) {
+    const vio = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { const pr = e.target.play(); if (pr && pr.catch) pr.catch(() => {}); }
+      else e.target.pause();
+    }), { threshold: 0.4 });
+    clips.forEach(v => vio.observe(v));
+  }
+
   /* ---------- Scroll reveals ---------- */
   if (!motion || !("IntersectionObserver" in window)) { onScroll(); return; }
 

@@ -388,3 +388,23 @@ html, body { overflow-x: clip; }
 .course-form { grid-template-columns: 2fr 1.2fr .6fr 1.4fr 2fr .7fr 1fr 1.6fr; }
 @media (max-width: 1000px) { .course-form { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .course-form { grid-template-columns: 1fr; } .h2h-row { grid-template-columns: minmax(0, 6.5rem) 1fr 2.8rem; } }
+
+/* Real hero photo and video clip */
+.photo.has-img { background: var(--surface); padding: 0; display: block; z-index: 2; }
+.photo.has-img img { object-position: 50% 30%; }
+@media (max-width: 900px) { .photo.has-img { aspect-ratio: 4 / 5; } }
+.video.has-clip { flex-direction: row; align-items: center; gap: 32px; }
+.video .clip { flex: 0 0 auto; width: min(300px, 42%); aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; }
+.video .clip video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-text { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; min-width: 0; }
+@media (max-width: 640px) { .video.has-clip { flex-direction: column; align-items: stretch; padding: 20px; } .video .clip { width: 100%; max-width: 340px; margin: 0 auto; } }
+
+/* Hero slideshow: photos stack and crossfade */
+.slideshow picture { position: absolute; inset: 0; opacity: 0; transition: opacity 1.1s ease; }
+.slideshow picture.on { opacity: 1; }
+.slideshow picture img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+.slideshow .dots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; gap: 4px; z-index: 3; }
+.slideshow .dots button { width: 28px; height: 28px; padding: 0; border: 0; background: transparent; cursor: pointer; touch-action: manipulation; display: grid; place-items: center; }
+.slideshow .dots button::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.55); box-shadow: 0 0 0 1px rgba(0,0,0,.25); transition: width .3s, background .3s; }
+.slideshow .dots button[aria-current="true"]::before { width: 22px; border-radius: 4px; background: #fff; }
+@media (prefers-reduced-motion: reduce) { .slideshow picture { transition: none; } }

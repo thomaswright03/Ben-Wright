@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Family Area · Ben Wright</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/">Ben <span>Wright</span></a>
+    <ul><li><a href="/">Back to profile</a></li></ul>
+  </div>
+</nav>
+
+<main id="questions-view">
+  <div class="wrap">
+    <header style="display:flex;flex-direction:column;gap:8px;margin-bottom:28px">
+      <span class="eyebrow">Family only</span>
+      <h2>Family area</h2>
+      <p class="lede">Post questions for Ben to answer, and see which coaches have opened the profile.</p>
+    </header>
+
+    <form class="gate" id="gate" autocomplete="off">
+      <label for="pw">Password</label>
+      <input type="password" id="pw" required>
+      <p class="err" id="pw-err" hidden>That password isn't right. Check with Thomas.</p>
+      <button class="btn primary" type="submit">Unlock</button>
+    </form>
+
+    <div class="qa-layout" id="qa" hidden>
+      <form class="ask" id="ask-form">
+        <label for="new-q">Ask Ben a question</label>
+        <textarea id="new-q" placeholder="What's your favorite course you've played, and why?" required></textarea>
+        <div class="row"><span class="status" id="ask-status"></span><button class="btn primary" type="submit">Post question</button></div>
+      </form>
+      <p class="status" id="db-status"></p>
+      <ul class="qlist" id="qlist"></ul>
+
+      <div class="admin">
+        <header style="display:flex;flex-direction:column;gap:8px;margin-top:24px">
+          <span class="eyebrow">Coach codes</span>
+          <h2 style="font-size:2rem">Who has viewed the profile</h2>
+          <p class="lede">Give each coach their own 4-digit code, or send them their personal link (the site address plus <code>/?c=</code> and the code). When they open the profile, their visit shows up here.</p>
+        </header>
+        <form class="addcode" id="code-add">
+          <div><label for="nc-code">Code</label><input id="nc-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required></div>
+          <div><label for="nc-coach">Coach</label><input id="nc-coach" required></div>
+          <div><label for="nc-school">School</label><input id="nc-school"></div>
+          <button class="btn primary" type="submit">Add</button>
+        </form>
+        <span class="status" id="code-status"></span>
+        <span class="status" id="anon-visits"></span>
+        <div class="table-scroll">
+          <table class="results">
+            <thead><tr><th>Code</th><th>Coach</th><th>School</th><th>Viewed?</th><th class="num">Visits</th><th>Last visit</th><th></th></tr></thead>
+            <tbody id="codes-body"><tr><td colspan="7" class="status">No codes yet. Add one above.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="/family.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "ben-wright",
+  "private": true,
+  "description": "Recruiting website for Ben Wright, Class of 2029 golfer",
+  "engines": { "node": ">=18" }
+}

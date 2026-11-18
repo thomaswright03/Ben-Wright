@@ -1,10 +1,10 @@
-// Tiny Upstash Redis REST client. Works with either env var naming that
-// Vercel's Upstash integration sets (KV_* or UPSTASH_REDIS_REST_*).
+// Storage client. Works with either kind of Redis that Vercel can connect:
+//  - Redis (Redis Cloud): a REDIS_URL connection string (redis:// or rediss://)
+//  - Upstash for Redis: KV_REST_API_URL + KV_REST_API_TOKEN (or UPSTASH_REDIS_REST_*)
+// Vercel may add a custom prefix to these names, so prefixed variants are accepted too.
 const crypto = require("crypto");
 
-// Vercel can prefix these names (e.g. STORAGE_KV_REST_API_URL), so also accept
-// any variable ending in KV_REST_API_URL or REDIS_REST_URL with its matching token.
-function findEnv() {
+function findRest() {
   const env = process.env;
   if (env.KV_REST_API_URL && env.KV_REST_API_TOKEN) return [env.KV_REST_API_URL, env.KV_REST_API_TOKEN];
   if (env.UPSTASH_REDIS_REST_URL && env.UPSTASH_REDIS_REST_TOKEN) return [env.UPSTASH_REDIS_REST_URL, env.UPSTASH_REDIS_REST_TOKEN];
@@ -16,13 +16,40 @@ function findEnv() {
   }
   return [null, null];
 }
-const [URL_, TOKEN] = findEnv();
+
+function findRedisUrl() {
+  const env = process.env;
+  if (env.REDIS_URL) return env.REDIS_URL;
+  for (const k of Object.keys(env)) {
+    if (/_URL$/.test(k) && /^rediss?:\/\//.test(env[k] || "")) return env[k];
+  }
+  return null;
+}
+
+const [REST_URL, REST_TOKEN] = findRest();
+const REDIS_URL = findRedisUrl();
+
+// One TCP client reused across warm invocations.
+let clientPromise = null;
+function tcpClient() {
+  if (!clientPromise) {
+    const { createClient } = require("redis");
+    const client = createClient({ url: REDIS_URL, socket: { connectTimeout: 5000 } });
+    client.on("error", () => {});
+    clientPromise = client.connect().then(() => client).catch(e => { clientPromise = null; throw e; });
+  }
+  return clientPromise;
+}
 
 async function redis(...command) {
-  if (!URL_ || !TOKEN) throw new Error("storage_not_configured");
-  const r = await fetch(URL_, {
+  if (REDIS_URL) {
+    const client = await tcpClient();
+    return client.sendCommand(command.map(String));
+  }
+  if (!REST_URL || !REST_TOKEN) throw new Error("storage_not_configured");
+  const r = await fetch(REST_URL, {
     method: "POST",
-    headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" },
+    headers: { Authorization: `Bearer ${REST_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify(command),
   });
   const json = await r.json();

@@ -11,7 +11,7 @@ Plain HTML/CSS/JS with two Vercel serverless functions in `api/`. No build step.
 ## Deploying on Vercel
 
 1. **Import the repo** at vercel.com → Add New → Project → pick `Ben-Wright`. Framework preset: *Other*. Leave build settings empty.
-2. **Add storage**: in the project, open *Storage* → *Create Database* → **Upstash for Redis** (free tier is plenty) and connect it to the project. It sets `KV_REST_API_URL` and `KV_REST_API_TOKEN` automatically (`UPSTASH_REDIS_REST_URL`/`_TOKEN` also work).
+2. **Add storage**: in the project, open *Storage* and connect either **Redis** (sets `REDIS_URL`) or **Upstash for Redis** (sets `KV_REST_API_URL`/`KV_REST_API_TOKEN`). Either works, with or without a custom prefix.
 3. **Set the passwords**: *Settings* → *Environment Variables* → add `FAMILY_PASSWORD` (for /questions) and, optionally, `ADMIN_PASSWORD` (for /admin, so Ben's password can't create codes).
 4. **Redeploy** so the functions pick up the new variables.
 

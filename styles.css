@@ -347,3 +347,7 @@ html, body { overflow-x: clip; }
   nav ul::-webkit-scrollbar { display: none; }
   nav ul li { flex: none; }
 }
+.ev-link { color: inherit; text-decoration: none; background-image: linear-gradient(var(--fairway), var(--fairway)); background-size: 0% 2px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .35s var(--ease-out), color .2s; border-bottom: 1px dotted var(--line); }
+.ev-link:hover, .ev-link:focus-visible { background-size: 100% 2px; color: var(--fairway); border-bottom-color: transparent; }
+.ev-link::after { content: "\2197"; font-size: .75em; margin-left: 3px; opacity: .45; transition: opacity .2s, transform .2s var(--ease-out); display: inline-block; }
+.ev-link:hover::after { opacity: 1; transform: translate(2px, -2px); }

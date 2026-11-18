@@ -27,7 +27,7 @@
   const messages = {
     wrong_password: "That password isn't right. Check with Thomas.",
     password_not_configured: "The family password hasn't been set up on the server yet (FAMILY_PASSWORD in Vercel).",
-    storage_not_configured: "Storage isn't connected yet. Add an Upstash Redis database to the Vercel project.",
+    storage_not_configured: "Storage isn't connected yet. In Vercel, connect an Upstash Redis database to this project, then redeploy.",
   };
 
   async function load() {

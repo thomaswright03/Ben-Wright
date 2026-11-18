@@ -15,7 +15,7 @@
 
   const messages = {
     password_not_configured: "No admin password is set on the server yet. Add ADMIN_PASSWORD (or FAMILY_PASSWORD) in Vercel.",
-    storage_not_configured: "Storage isn't connected yet. Add an Upstash Redis database to the Vercel project.",
+    storage_not_configured: "Storage isn't connected yet. In Vercel, connect an Upstash Redis database to this project, then redeploy.",
   };
 
   async function api(method, body) {

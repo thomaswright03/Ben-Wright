@@ -2,8 +2,21 @@
 // Vercel's Upstash integration sets (KV_* or UPSTASH_REDIS_REST_*).
 const crypto = require("crypto");
 
-const URL_ = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-const TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+// Vercel can prefix these names (e.g. STORAGE_KV_REST_API_URL), so also accept
+// any variable ending in KV_REST_API_URL or REDIS_REST_URL with its matching token.
+function findEnv() {
+  const env = process.env;
+  if (env.KV_REST_API_URL && env.KV_REST_API_TOKEN) return [env.KV_REST_API_URL, env.KV_REST_API_TOKEN];
+  if (env.UPSTASH_REDIS_REST_URL && env.UPSTASH_REDIS_REST_TOKEN) return [env.UPSTASH_REDIS_REST_URL, env.UPSTASH_REDIS_REST_TOKEN];
+  for (const k of Object.keys(env)) {
+    const m = k.match(/^(.*)(KV_REST_API|REDIS_REST)_URL$/);
+    if (!m) continue;
+    const token = env[m[1] + m[2] + "_TOKEN"];
+    if (env[k] && token) return [env[k], token];
+  }
+  return [null, null];
+}
+const [URL_, TOKEN] = findEnv();
 
 async function redis(...command) {
   if (!URL_ || !TOKEN) throw new Error("storage_not_configured");

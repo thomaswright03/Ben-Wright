@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "headers": [
-    { "source": "/(questions|admin)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] },
+    { "source": "/(questions|admin|ben-picks|add-picks)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] },
     { "source": "/api/(.*)", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
   ]
 }

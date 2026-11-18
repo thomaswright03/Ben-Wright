@@ -1,0 +1,197 @@
+{
+ "title": "GCAA top 25 (Nov 6, 2026) + Utah schools",
+ "schools": [
+  {
+   "name": "Auburn University",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "AL"
+  },
+  {
+   "name": "Oklahoma State University",
+   "division": "D1",
+   "conference": "Big 12",
+   "state": "OK"
+  },
+  {
+   "name": "University of Arkansas",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "AR"
+  },
+  {
+   "name": "University of Florida",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "FL"
+  },
+  {
+   "name": "University of Texas",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "TX"
+  },
+  {
+   "name": "Texas Tech University",
+   "division": "D1",
+   "conference": "Big 12",
+   "state": "TX"
+  },
+  {
+   "name": "University of Tennessee",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "TN"
+  },
+  {
+   "name": "University of Alabama",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "AL"
+  },
+  {
+   "name": "University of Illinois",
+   "division": "D1",
+   "conference": "Big Ten",
+   "state": "IL"
+  },
+  {
+   "name": "Georgia Tech",
+   "division": "D1",
+   "conference": "ACC",
+   "state": "GA"
+  },
+  {
+   "name": "University of Georgia",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "GA"
+  },
+  {
+   "name": "University of New Mexico",
+   "division": "D1",
+   "conference": "Mountain West",
+   "state": "NM"
+  },
+  {
+   "name": "Vanderbilt University",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "TN"
+  },
+  {
+   "name": "Texas A&M University",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "TX"
+  },
+  {
+   "name": "University of North Carolina",
+   "division": "D1",
+   "conference": "ACC",
+   "state": "NC"
+  },
+  {
+   "name": "University of Washington",
+   "division": "D1",
+   "conference": "Big Ten",
+   "state": "WA"
+  },
+  {
+   "name": "Arizona State University",
+   "division": "D1",
+   "conference": "Big 12",
+   "state": "AZ"
+  },
+  {
+   "name": "University of Notre Dame",
+   "division": "D1",
+   "conference": "ACC",
+   "state": "IN"
+  },
+  {
+   "name": "Clemson University",
+   "division": "D1",
+   "conference": "ACC",
+   "state": "SC"
+  },
+  {
+   "name": "Brigham Young University (BYU)",
+   "division": "D1",
+   "conference": "Big 12",
+   "state": "UT"
+  },
+  {
+   "name": "East Tennessee State University",
+   "division": "D1",
+   "conference": "SoCon",
+   "state": "TN"
+  },
+  {
+   "name": "Wake Forest University",
+   "division": "D1",
+   "conference": "ACC",
+   "state": "NC"
+  },
+  {
+   "name": "Santa Clara University",
+   "division": "D1",
+   "conference": "WCC",
+   "state": "CA"
+  },
+  {
+   "name": "TCU",
+   "division": "D1",
+   "conference": "Big 12",
+   "state": "TX"
+  },
+  {
+   "name": "University of South Carolina",
+   "division": "D1",
+   "conference": "SEC",
+   "state": "SC"
+  },
+  {
+   "name": "University of Utah",
+   "division": "D1",
+   "conference": "Big 12",
+   "state": "UT"
+  },
+  {
+   "name": "Utah State University",
+   "division": "D1",
+   "conference": "Pac-12",
+   "state": "UT"
+  },
+  {
+   "name": "Utah Valley University",
+   "division": "D1",
+   "conference": "",
+   "state": "UT"
+  },
+  {
+   "name": "Utah Tech University",
+   "division": "D1",
+   "conference": "",
+   "state": "UT"
+  },
+  {
+   "name": "Southern Utah University",
+   "division": "D1",
+   "conference": "",
+   "state": "UT"
+  },
+  {
+   "name": "Weber State University",
+   "division": "D1",
+   "conference": "Big Sky",
+   "state": "UT"
+  },
+  {
+   "name": "Westminster University",
+   "division": "D2",
+   "conference": "RMAC",
+   "state": "UT"
+  }
+ ]
+}

@@ -101,6 +101,15 @@
     if (await add(list, document.getElementById("bulk-status"))) document.getElementById("bulk").value = "";
   });
 
+  document.getElementById("starter-add").addEventListener("click", async () => {
+    const st = document.getElementById("starter-status");
+    try {
+      const r = await fetch("/data/starter-schools.json");
+      const d = await r.json();
+      await add(d.schools, st);
+    } catch (e) { st.textContent = "Couldn't load the starter list."; }
+  });
+
   async function copy(text, label) {
     const st = document.getElementById("copy-status");
     try { await navigator.clipboard.writeText(text); st.textContent = label; }

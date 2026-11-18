@@ -11,8 +11,13 @@
 
   function open(code) {
     try { sessionStorage.setItem("bw-code", code); } catch (e) {}
-    gate.hidden = true;
     document.body.style.overflow = "";
+    if (document.documentElement.classList.contains("motion")) {
+      gate.classList.add("leaving");
+      setTimeout(() => { gate.hidden = true; }, 900);
+    } else {
+      gate.hidden = true;
+    }
   }
 
   async function record(code) {
@@ -32,7 +37,10 @@
       if (status === 404) {
         err.textContent = "That code isn't recognized. Check the email you received, or view the profile without one.";
         err.hidden = false;
-        digits.forEach(d => (d.value = ""));
+        const row = document.querySelector(".digits");
+        row.classList.add("shake");
+        setTimeout(() => row.classList.toggle("shake", false), 500);
+        digits.forEach(d => { d.value = ""; d.classList.toggle("filled", false); });
         digits[0].focus();
         return;
       }
@@ -44,6 +52,7 @@
   digits.forEach((inp, i) => {
     inp.addEventListener("input", () => {
       inp.value = inp.value.replace(/\D/g, "").slice(0, 1);
+      inp.classList.toggle("filled", !!inp.value);
       if (inp.value && digits[i + 1]) digits[i + 1].focus();
       if (digits.every(d => d.value)) document.getElementById("code-form").requestSubmit();
     });
@@ -54,7 +63,7 @@
       const t = (e.clipboardData.getData("text") || "").replace(/\D/g, "").slice(0, 4);
       if (!t) return;
       e.preventDefault();
-      t.split("").forEach((c, j) => (digits[j].value = c));
+      t.split("").forEach((c, j) => { digits[j].value = c; digits[j].classList.add("filled"); });
       digits[Math.min(t.length, 3)].focus();
       if (t.length === 4) document.getElementById("code-form").requestSubmit();
     });

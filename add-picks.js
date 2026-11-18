@@ -30,6 +30,7 @@
       schools = d.schools;
       gate.hidden = true; panel.hidden = false;
       render();
+      if (!window.__staggered && window.motionStagger) { window.__staggered = true; window.motionStagger(document.getElementById("rows")); }
       return true;
     } catch (e) {
       gate.hidden = false; panel.hidden = true;

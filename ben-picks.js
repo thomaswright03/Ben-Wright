@@ -72,10 +72,13 @@
     return true;
   }
 
+  let firstRender = true, justPicked = null;
   async function setPick(s, pick) {
     const prev = s.pick;
     s.pick = s.pick === pick ? null : pick;   // tapping the active choice clears it
+    justPicked = s.id;
     render();
+    justPicked = null;
     try { await api("POST", { action: "setPick", id: s.id, pick: s.pick }); status.textContent = ""; }
     catch (e) { s.pick = prev; render(); status.textContent = "Couldn't save " + s.name + ". Try again."; }
   }
@@ -87,7 +90,7 @@
     const shown = schools.filter(matches);
     if (!shown.length) { list.append(el("li", "empty", "No schools match these filters.")); return; }
     shown.forEach(s => {
-      const li = el("li", "school" + (s.pick ? " " + s.pick : ""));
+      const li = el("li", "school" + (s.pick ? " " + s.pick : "") + (s.id === justPicked ? " just-picked" : ""));
       const info = el("div", "info");
       info.append(el("div", "name", s.name));
       const sub = [s.rank ? "#" + s.rank : "", s.division, s.conference, s.state].filter(Boolean).join(" · ");
@@ -103,6 +106,7 @@
       li.append(info, t);
       list.append(li);
     });
+    if (firstRender && window.motionStagger) { firstRender = false; window.motionStagger(list); }
   }
 
   document.getElementById("search").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); render(); });

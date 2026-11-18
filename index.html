@@ -9,12 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/styles.css">
+<script>(function(){var d=document.documentElement;if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('motion');window.__motionFail=setTimeout(function(){d.classList.add('motion-done')},3000);}})();</script>
 </head>
 <body>
 <div id="code-gate">
   <form class="gate-card" id="code-form" autocomplete="off">
     <span class="eyebrow">Golf · Class of 2029 · Salt Lake City, Utah</span>
-    <h1>Ben <em>Wright</em></h1>
+    <h1><span class="line"><span>Ben</span></span> <em class="line"><span>Wright</span></em></h1>
     <p class="lede" style="margin:0 auto">Enter the 4-digit code from your email to view Ben's recruiting profile.</p>
     <div class="digits">
       <input id="d1" inputmode="numeric" maxlength="1" aria-label="Digit 1"><input id="d2" inputmode="numeric" maxlength="1" aria-label="Digit 2"><input id="d3" inputmode="numeric" maxlength="1" aria-label="Digit 3"><input id="d4" inputmode="numeric" maxlength="1" aria-label="Digit 4">
@@ -30,6 +31,7 @@
     <a class="brand" href="#top">Ben <span>Wright</span></a>
     <ul>
       <li><a href="#scores">Scores</a></li>
+      <li><a href="#timeline">Timeline</a></li>
       <li><a href="#video">Video</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#academics">Academics</a></li>
@@ -42,9 +44,21 @@
 <main id="profile-view">
   <div class="wrap" id="top">
     <div class="hero">
+      <svg class="tracer" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="tracer-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="var(--flag)" stop-opacity="0"/>
+            <stop offset=".35" stop-color="var(--flag)" stop-opacity=".55"/>
+            <stop offset="1" stop-color="var(--flag)" stop-opacity="1"/>
+          </linearGradient>
+        </defs>
+        <path id="tracer-path" class="tracer-line" d="M30 492 C 360 40, 860 -60, 1165 250" pathLength="1" fill="none" stroke="url(#tracer-grad)" stroke-width="3" stroke-linecap="round"/>
+        <circle class="tracer-ring" cx="1165" cy="250" r="18" fill="none" stroke="var(--flag)" stroke-width="2"/>
+        <circle class="tracer-ball" r="7" cx="0" cy="0" transform="translate(1165 250)" fill="var(--surface)" stroke="var(--flag)" stroke-width="2.5"/>
+      </svg>
       <div>
         <p class="eyebrow">Golf · Class of 2029 · East High School · Salt Lake City, Utah</p>
-        <h1>Ben<em>Wright</em></h1>
+        <h1><span class="line"><span>Ben</span></span><em class="line"><span>Wright</span></em></h1>
         <p class="tag"><strong>+3.6 handicap.</strong> Two-time First Team All-State, 2025 Utah State Junior Stroke Play Champion, and East High's No. 1 player as a freshman and sophomore.</p>
         <div class="cta">
           <a class="btn primary" href="#scores">See tournament results</a>
@@ -52,7 +66,7 @@
           <a class="btn ghost" href="https://www.instagram.com/ben_wright_13/" target="_blank" rel="noopener">Instagram @ben_wright_13</a>
         </div>
       </div>
-      <div class="photo">Action photo goes here<br>(send a shot from a tournament round)</div>
+      <div class="photo"><span>Action photo goes here<br>(send a shot from a tournament round)</span></div>
     </div>
 
     <div class="card-label">
@@ -103,6 +117,96 @@
         <div><span class="eyebrow">Junior Golf Scoreboard</span><strong>126</strong><span>Class of 2029 rank · 855 overall (Nov 10, 2026)</span></div>
         <div><span class="eyebrow">Junior Golf Hub</span><strong>67</strong><span>Class of 2029 rank · 462 overall</span></div>
       </div>
+    </div>
+  </section>
+
+  <section id="timeline" class="timeline-section">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Career timeline</span>
+        <h2>From U.S. Kids to All-State</h2>
+        <p class="lede">Nine years of competitive golf, from the U.S. Kids World Championship at Pinehurst to the Notah Begay III National Championship.</p>
+      </header>
+      <ol class="timeline" id="timeline-list">
+        <li class="tl-item">
+          <div class="tl-year">2018</div>
+          <div class="tl-card">
+            <h3>Pinehurst, year one</h3>
+            <ul>
+              <li class="win">U.S. Kids Golf Salt Lake City Player of the Year</li>
+              <li>Qualified for and played the U.S. Kids Golf World Championship at Pinehurst</li>
+              <li>First of 40 local tournament wins</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-year">2019</div>
+          <div class="tl-card">
+            <h3>Back-to-back Player of the Year</h3>
+            <ul>
+              <li class="win">U.S. Kids Golf SLC Player of the Year, spring and fall</li>
+              <li>Returned to the U.S. Kids World Championship at Pinehurst</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-year">2020</div>
+          <div class="tl-card">
+            <h3>Third straight World Championship</h3>
+            <ul>
+              <li>Qualified for the U.S. Kids World Championship at Pinehurst for the third year in a row</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-year">2023</div>
+          <div class="tl-card">
+            <h3>First UJGA title</h3>
+            <ul>
+              <li class="win">UJGA Swire Cup Champion</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-year">2024</div>
+          <div class="tl-card">
+            <h3>Breaking through in Utah</h3>
+            <ul>
+              <li>2nd, UJGA Utah Junior Open <span class="sc">76 · 71 · 71</span></li>
+              <li>T2, UJGA Optimist International Qualifier <span class="sc">72 · 73</span></li>
+              <li>Played the Optimist International Junior Championship at Trump Doral</li>
+              <li>PGA Jr. League Team Utah, regional semifinals in Prineville, Oregon</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-year">2025</div>
+          <div class="tl-card">
+            <h3>State champion as a freshman</h3>
+            <ul>
+              <li class="win">Utah State Junior Stroke Play Champion <span class="sc">71 · 73 · 71</span></li>
+              <li class="win">T1, Utah Jr. PGA SLC Major <span class="sc">70</span></li>
+              <li>First Team All-State and No. 1 seed at East High</li>
+              <li>UJGA All-Junior Team</li>
+              <li>T4, UJGA Optimist International Qualifier, then Trump Doral again</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-year">2026</div>
+          <div class="tl-card">
+            <h3>Going national</h3>
+            <ul>
+              <li class="win">Utah Jr. PGA Major Champion <span class="sc">71</span></li>
+              <li class="win">1st, Notah Begay III Regional <span class="sc">68 · 66</span>, advancing to the National Championship</li>
+              <li class="win">1st, Notah Begay III Utah Point Series <span class="sc">72 · 72</span></li>
+              <li>T3 and alternate, USGA Junior Amateur Qualifier <span class="sc">68</span></li>
+              <li>9th, Optimist International Junior Championship at Trump Doral</li>
+              <li>Second straight First Team All-State · Kelly Woodland Cup team</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -206,5 +310,6 @@
 </main>
 
 <script src="/site.js"></script>
+<script src="/motion.js"></script>
 </body>
 </html>

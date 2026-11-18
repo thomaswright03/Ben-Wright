@@ -39,6 +39,7 @@
       qa.hidden = false;
       status.hidden = true;
       renderQuestions(data.questions.sort((a, b) => b.askedAt - a.askedAt));
+      if (!window.__staggered && window.motionStagger) { window.__staggered = true; window.motionStagger(document.getElementById("qlist")); }
       return true;
     } catch (e) {
       if (e.status === 401) {

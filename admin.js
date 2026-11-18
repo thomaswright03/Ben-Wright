@@ -44,6 +44,7 @@
       codes = data.codes.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
       visits = data.visits;
       render();
+      if (!window.__staggered && window.motionStagger) { window.__staggered = true; window.motionStagger(document.getElementById("codes-body")); }
       return true;
     } catch (e) {
       if (e.status === 401) {

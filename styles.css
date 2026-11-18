@@ -90,7 +90,7 @@ table.results { width: 100%; min-width: 620px; border-collapse: collapse; font-v
 footer { padding-block: 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
 
 /* Questions view */
-#questions-view { padding-block: 48px 64px; }
+#questions-view, #admin-view { padding-block: 48px 64px; }
 .gate { max-width: 420px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px; display: grid; gap: 14px; }
 label { font-weight: 600; font-size: .9rem; }
 input[type=password], textarea { width: 100%; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
@@ -139,3 +139,12 @@ textarea { min-height: 84px; resize: vertical; }
 .pill.yes { background: var(--fairway); color: var(--fairway-ink); }
 .pill.no { border: 1px solid var(--line); color: var(--muted); }
 @media (max-width: 600px) { .addcode { grid-template-columns: 1fr; } .digits input { width: 56px; height: 68px; } }
+
+/* Admin */
+.created { background: var(--surface); border: 1px solid var(--fairway); border-radius: 10px; padding: 18px 20px; display: grid; gap: 8px; }
+.created-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; min-width: 0; }
+.created-row strong { font-family: var(--display); font-size: 2.4rem; line-height: 1; letter-spacing: .08em; }
+.created-row code { font-family: var(--mono); font-size: .9rem; overflow-wrap: anywhere; min-width: 0; }
+.created .btn { padding: 8px 14px; }
+.summary { display: flex; gap: 24px; flex-wrap: wrap; font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+.summary b { font-family: var(--display); font-size: 1.6rem; color: var(--ink); margin-right: 6px; }

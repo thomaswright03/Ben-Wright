@@ -26,13 +26,17 @@ function parseHash(arr) {
   return out;
 }
 
-// Compares the supplied password with the FAMILY_PASSWORD env var in constant time.
-function checkPassword(supplied) {
-  const expected = process.env.FAMILY_PASSWORD;
+// Compares the supplied password with an env var in constant time.
+// ADMIN_PASSWORD guards /admin; if it isn't set, FAMILY_PASSWORD is used for both.
+function expectedPassword(kind) {
+  return kind === "admin" ? (process.env.ADMIN_PASSWORD || process.env.FAMILY_PASSWORD) : process.env.FAMILY_PASSWORD;
+}
+function checkPassword(supplied, kind) {
+  const expected = expectedPassword(kind);
   if (!expected || typeof supplied !== "string") return false;
   const a = crypto.createHash("sha256").update(supplied).digest();
   const b = crypto.createHash("sha256").update(expected).digest();
   return crypto.timingSafeEqual(a, b);
 }
 
-module.exports = { redis, parseHash, checkPassword };
+module.exports = { redis, parseHash, checkPassword, expectedPassword };

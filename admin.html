@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Admin · Ben Wright</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/">Ben <span>Wright</span></a>
+    <ul><li><a href="/">Back to profile</a></li></ul>
+  </div>
+</nav>
+
+<main id="admin-view">
+  <div class="wrap">
+    <header style="display:flex;flex-direction:column;gap:8px;margin-bottom:28px">
+      <span class="eyebrow">Admin</span>
+      <h2>Coach codes</h2>
+      <p class="lede">Create a 4-digit code for each coach and send it with their personal link. When they open the profile, their visit shows up here.</p>
+    </header>
+
+    <form class="gate" id="gate" autocomplete="off">
+      <label for="pw">Admin password</label>
+      <input type="password" id="pw" required>
+      <p class="err" id="pw-err" hidden>That password isn't right.</p>
+      <button class="btn primary" type="submit">Unlock</button>
+    </form>
+
+    <div class="admin" id="panel" hidden>
+      <form class="addcode" id="code-add">
+        <div><label for="nc-code">Code</label><input id="nc-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="Auto"></div>
+        <div><label for="nc-coach">Coach name</label><input id="nc-coach" required></div>
+        <div><label for="nc-school">School</label><input id="nc-school"></div>
+        <button class="btn primary" type="submit">Create code</button>
+      </form>
+      <p class="status" style="margin:0">Leave the code blank and one is picked for you.</p>
+      <div class="created" id="created" hidden>
+        <span class="eyebrow">New code</span>
+        <div class="created-row"><strong id="created-code"></strong><span id="created-for"></span></div>
+        <div class="created-row"><code id="created-link"></code><button type="button" class="btn ghost" id="copy-link">Copy link</button></div>
+      </div>
+      <p class="status" id="code-status"></p>
+
+      <div class="summary" id="summary"></div>
+      <div class="table-scroll">
+        <table class="results">
+          <thead><tr><th>Code</th><th>Coach</th><th>School</th><th>Viewed?</th><th class="num">Visits</th><th>Last visit</th><th></th></tr></thead>
+          <tbody id="codes-body"><tr><td colspan="7" class="status">Loading…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="status" id="anon-visits"></p>
+    </div>
+  </div>
+</main>
+
+<script src="/admin.js"></script>
+</body>
+</html>

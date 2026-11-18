@@ -1,4 +1,4 @@
-// Family area at /questions. The password is checked by the server against
+// Questions for Ben at /questions. The password is checked by the server against
 // the FAMILY_PASSWORD environment variable; nothing secret lives in this file.
 (function () {
   let password = "";
@@ -9,10 +9,8 @@
   const qa = document.getElementById("qa");
   const status = document.getElementById("db-status");
   const list = document.getElementById("qlist");
-  let codes = [], visits = [];
 
   const fmtDate = t => t ? new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "";
-  const fmtTime = t => new Date(t).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
 
   async function api(method, body) {
     const r = await fetch("/api/family", {
@@ -40,10 +38,7 @@
       gateForm.hidden = true;
       qa.hidden = false;
       status.hidden = true;
-      codes = data.codes.sort((a, b) => a.code.localeCompare(b.code));
-      visits = data.visits;
       renderQuestions(data.questions.sort((a, b) => b.askedAt - a.askedAt));
-      renderCodes();
       return true;
     } catch (e) {
       if (e.status === 401) {
@@ -53,7 +48,7 @@
         pwErr.textContent = messages.wrong_password; pwErr.hidden = false;
       } else {
         gateForm.hidden = true; qa.hidden = false;
-        status.textContent = messages[e.message] || "Couldn't load the family area. Try again in a minute.";
+        status.textContent = messages[e.message] || "Couldn't load the questions. Try again in a minute.";
       }
       return false;
     }
@@ -107,53 +102,12 @@
     });
   }
 
-  function renderCodes() {
-    const body = document.getElementById("codes-body");
-    body.textContent = "";
-    if (!codes.length) {
-      const tr = el("tr"); const td = el("td", "status", "No codes yet. Add one above."); td.colSpan = 7; tr.append(td); body.append(tr);
-    }
-    codes.forEach(c => {
-      const v = visits.filter(x => x.code === c.code);
-      const last = v.reduce((a, x) => Math.max(a, x.at || 0), 0);
-      const tr = el("tr");
-      const codeTd = el("td", "", c.code); codeTd.style.fontFamily = "var(--mono)";
-      const pillTd = el("td"); pillTd.append(el("span", "pill " + (v.length ? "yes" : "no"), v.length ? "Viewed" : "Not yet"));
-      const delTd = el("td");
-      const del = el("button", "linkbtn", "Remove"); del.type = "button";
-      let armed = false;
-      del.onclick = async () => {
-        if (!armed) { armed = true; del.textContent = "Click again"; setTimeout(() => { armed = false; del.textContent = "Remove"; }, 3000); return; }
-        try { await api("POST", { action: "deleteCode", code: c.code }); await load(); } catch (e) {}
-      };
-      delTd.append(del);
-      tr.append(codeTd, el("td", "", c.coach), el("td", "", c.school || ""), pillTd, el("td", "num", String(v.length)), el("td", "", last ? fmtTime(last) : "–"), delTd);
-      body.append(tr);
-    });
-    const anon = visits.filter(x => x.code === "none").length;
-    document.getElementById("anon-visits").textContent = anon ? anon + " visit" + (anon === 1 ? "" : "s") + " without a code." : "";
-  }
-
   document.getElementById("ask-form").addEventListener("submit", async e => {
     e.preventDefault();
     const ta = document.getElementById("new-q"); const st = document.getElementById("ask-status");
     st.textContent = "Posting…";
     try { await api("POST", { action: "addQuestion", text: ta.value }); ta.value = ""; st.textContent = "Posted"; await load(); }
     catch (err) { st.textContent = "Couldn't post. Try again."; }
-  });
-
-  document.getElementById("code-add").addEventListener("submit", async e => {
-    e.preventDefault();
-    const st = document.getElementById("code-status");
-    const code = document.getElementById("nc-code").value.trim();
-    if (!/^\d{4}$/.test(code)) { st.textContent = "Codes are exactly 4 digits."; return; }
-    try {
-      await api("POST", { action: "addCode", code, coach: document.getElementById("nc-coach").value, school: document.getElementById("nc-school").value });
-      e.target.reset(); st.textContent = "Added " + code + ". Personal link: " + location.origin + "/?c=" + code;
-      await load();
-    } catch (err) {
-      st.textContent = err.message === "code_taken" ? "Code " + code + " is already assigned." : "Couldn't add the code.";
-    }
   });
 
   if (password) load(); else { gateForm.hidden = false; qa.hidden = true; status.hidden = true; }

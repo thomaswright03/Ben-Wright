@@ -148,3 +148,14 @@ textarea { min-height: 84px; resize: vertical; }
 .created .btn { padding: 8px 14px; }
 .summary { display: flex; gap: 24px; flex-wrap: wrap; font-family: var(--mono); font-size: .8rem; color: var(--muted); }
 .summary b { font-family: var(--display); font-size: 1.6rem; color: var(--ink); margin-right: 6px; }
+
+/* Results extras */
+.mono { font-family: var(--mono); font-size: .9rem; }
+.results td.win { color: var(--fairway); font-weight: 600; }
+.rankings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.rankings > div { display: grid; gap: 2px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.rankings strong { font-family: var(--display); font-size: 2.4rem; line-height: 1.1; }
+.rankings span:last-child { color: var(--muted); font-size: .9rem; }
+.contacts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.contact-box .mono { overflow-wrap: anywhere; }
+@media (max-width: 760px) { .rankings, .contacts { grid-template-columns: 1fr; } }

@@ -1,0 +1,23 @@
+{
+  "courses": [
+    {
+      "id": "bonneville-slc-am-2026",
+      "course": "Bonneville Golf Course",
+      "location": "Salt Lake City, UT",
+      "par": 72,
+      "benRounds": [70, 71],
+      "benNote": "6th of 75, 2026 Salt Lake City Amateur (Championship flight)",
+      "d1Label": "D1 players",
+      "d1Event": "2026 Salt Lake City Amateur",
+      "d1Players": [
+        { "name": "Noah Moody", "school": "Utah State", "rounds": [71, 74] },
+        { "name": "David Liechty", "school": "BYU", "rounds": [74, 68] }
+      ],
+      "fieldAvg": 75.13,
+      "fieldLabel": "Whole field",
+      "fieldDetail": "71 finishers",
+      "d1Link": "https://www.golfgenius.com/pages/12602397337164204638",
+      "d1LinkLabel": "Leaderboard"
+    }
+  ]
+}

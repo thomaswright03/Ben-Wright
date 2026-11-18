@@ -31,7 +31,7 @@ h2 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 700; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
 nav .wrap { display: flex; align-items: center; gap: 20px; padding-block: 12px; flex-wrap: wrap; }
-.brand { font-family: var(--display); font-weight: 800; font-size: 1.35rem; text-transform: uppercase; text-decoration: none; color: var(--ink); margin-right: auto; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 1.35rem; text-transform: uppercase; text-decoration: none; color: var(--ink); margin-right: auto; white-space: nowrap; flex: none; }
 .brand span { color: var(--fairway); }
 nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
 nav ul a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; }
@@ -372,6 +372,10 @@ html, body { overflow-x: clip; }
 .h2h-fill { height: 100%; width: var(--w); border-radius: 999px; transition: width 1.3s var(--ease-out); }
 .h2h-row.ben .h2h-fill { background: linear-gradient(90deg, var(--fairway), color-mix(in srgb, var(--fairway) 70%, var(--flag))); }
 .h2h-row.d1 .h2h-fill { background: var(--muted); }
+.h2h-row.field .h2h-fill { background: color-mix(in srgb, var(--muted) 45%, transparent); }
+.h2h-row.field .h2h-val { color: var(--muted); }
+.motion .h2h-row.field .h2h-fill { transition-delay: .45s; }
+.h2h-lines { display: grid; gap: 2px; font-size: .78rem; }
 .motion .courses-section:not(.bars-in) .h2h-fill { width: 0; }
 .motion .h2h-row.d1 .h2h-fill { transition-delay: .25s; }
 .h2h-val { font-family: var(--display); font-weight: 700; font-size: 1.6rem; text-align: right; font-variant-numeric: tabular-nums; }

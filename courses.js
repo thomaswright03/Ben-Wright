@@ -1,4 +1,5 @@
-// Profile "Head to head" section: Ben's average vs the D1 field average at the same course.
+// Profile "Head to head" section: Ben's average vs Division I players at the same course.
+// Entries come from /data/courses.json (in the repo) plus any added on /admin (/api/courses).
 (function () {
   const section = document.getElementById("courses");
   if (!section) return;
@@ -8,7 +9,8 @@
 
   function card(c, i) {
     const ben = avg(c.benRounds);
-    const d1 = c.d1FieldAvg;
+    const players = (c.d1Players || []).filter(p => p.rounds && p.rounds.length);
+    const d1 = players.length ? avg(players.flatMap(p => p.rounds)) : c.d1FieldAvg;
     const par = c.par || 72;
     const lo = par - 6, hi = par + 10;
     const w = v => Math.max(6, Math.min(100, ((v - lo) / (hi - lo)) * 100));
@@ -35,29 +37,34 @@
       return row;
     }
     bars.append(bar("Ben", ben, "ben", c.benRounds.length + (c.benRounds.length === 1 ? " round" : " rounds")));
-    const d1Detail = [c.d1Event, c.d1Year].filter(Boolean).join(", ");
-    bars.append(bar("D1 field", d1, "d1", d1Detail));
+    const d1Detail = players.length ? players.map(p => p.school).join(" · ") : [c.d1Event, c.d1Year].filter(Boolean).join(", ");
+    bars.append(bar(c.d1Label || "D1 field", d1, "d1", d1Detail));
+    if (c.fieldAvg) bars.append(bar(c.fieldLabel || "Whole field", c.fieldAvg, "field", c.fieldDetail));
     box.append(head, bars);
 
     const foot = el("div", "h2h-foot");
-    foot.append(el("span", "mono", "Ben: " + c.benRounds.join(" · ")));
-    if (c.d1Link) { const a = el("a", "ev-link", "D1 results"); a.href = c.d1Link; a.target = "_blank"; a.rel = "noopener"; foot.append(a); }
+    const lines = el("div", "h2h-lines mono");
+    lines.append(el("span", "", "Ben: " + c.benRounds.join(" · ") + (c.benNote ? " (" + c.benNote + ")" : "")));
+    players.forEach(p => lines.append(el("span", "", p.name + ", " + p.school + ": " + p.rounds.join(" · "))));
+    foot.append(lines);
+    if (c.d1Link) { const a = el("a", "ev-link", c.d1LinkLabel || "D1 results"); a.href = c.d1Link; a.target = "_blank"; a.rel = "noopener"; foot.append(a); }
     box.append(foot);
     return { box, diff, rounds: c.benRounds.length };
   }
 
-  fetch("/api/courses").then(r => r.ok ? r.json() : { courses: [] }).then(d => {
-    const list = (d.courses || []).filter(c => c.benRounds && c.benRounds.length && c.d1FieldAvg);
+  const load = url => fetch(url).then(r => r.ok ? r.json() : { courses: [] }).then(d => d.courses || []).catch(() => []);
+  Promise.all([load("/data/courses.json"), load("/api/courses")]).then(([fixed, added]) => {
+    const list = fixed.concat(added).filter(c => c.benRounds && c.benRounds.length && (c.d1FieldAvg || (c.d1Players && c.d1Players.length)));
     if (!list.length) return;
     const grid = document.getElementById("h2h-grid");
     const cards = list.map(card);
     cards.forEach(c => grid.append(c.box));
     const better = cards.filter(c => c.diff < 0).length;
     const avgDiff = avg(cards.map(c => c.diff));
-    document.getElementById("h2h-summary").textContent =
-      "Across " + cards.length + (cards.length === 1 ? " course" : " courses") + ", Ben averages " +
-      fmt(Math.abs(avgDiff)) + (avgDiff <= 0 ? " strokes better than" : " strokes behind") +
-      " the Division I field" + (cards.length > 1 ? ", and beats the field average at " + better + " of " + cards.length + "." : ".");
+    const gap = fmt(Math.abs(avgDiff)) + (avgDiff <= 0 ? " strokes a round better than" : " strokes a round behind");
+    document.getElementById("h2h-summary").textContent = cards.length === 1
+      ? "At " + list[0].course + ", Ben averaged " + gap + " the Division I players he played against."
+      : "Across " + cards.length + " courses, Ben averages " + gap + " Division I players on the same course, and beats them at " + better + " of " + cards.length + ".";
     section.hidden = false;
     const navItem = document.getElementById("nav-courses"); if (navItem) navItem.hidden = false;
     // Reveal and animate the bars when the section scrolls into view

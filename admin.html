@@ -58,10 +58,39 @@
       </div>
       <p class="status" id="anon-visits"></p>
     </div>
+
+    <div class="admin course-admin" id="course-panel" hidden>
+      <header style="display:flex;flex-direction:column;gap:8px;margin-top:40px">
+        <span class="eyebrow">Head to head</span>
+        <h2 style="font-size:2rem">Course comparison</h2>
+        <p class="lede">Add a course Ben has played that also hosted a Division I event. It shows on the profile as Ben's average next to the D1 field's average. The section stays hidden until there's at least one course.</p>
+      </header>
+      <form class="ask" id="course-add">
+        <div class="school-form course-form">
+          <div><label for="c-course">Course</label><input id="c-course" required placeholder="Riverside Country Club"></div>
+          <div><label for="c-loc">Location</label><input id="c-loc" placeholder="Provo, UT"></div>
+          <div><label for="c-par">Par</label><input id="c-par" inputmode="numeric" placeholder="72"></div>
+          <div><label for="c-rounds">Ben's scores</label><input id="c-rounds" placeholder="71, 73, 70"></div>
+          <div><label for="c-event">D1 event</label><input id="c-event" placeholder="Name of the college tournament"></div>
+          <div><label for="c-year">Year</label><input id="c-year" placeholder="2026"></div>
+          <div><label for="c-avg">D1 field average</label><input id="c-avg" inputmode="decimal" placeholder="73.4"></div>
+          <div><label for="c-link">Results link</label><input id="c-link" type="url" placeholder="https://"></div>
+        </div>
+        <div class="row"><span class="status" id="course-status"></span><button class="btn primary" type="submit">Add course</button></div>
+      </form>
+      <div class="table-scroll">
+        <table class="results">
+          <thead><tr><th>Course</th><th>Ben's scores</th><th class="num">Ben avg</th><th>D1 event</th><th class="num">D1 avg</th><th class="num">Diff</th><th></th></tr></thead>
+          <tbody id="course-rows"><tr><td colspan="7" class="status">No courses yet.</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 </main>
 
 <script src="/admin.js"></script>
+<script src="/admin-courses.js"></script>
 <script src="/motion.js"></script>
 </body>
 </html>
